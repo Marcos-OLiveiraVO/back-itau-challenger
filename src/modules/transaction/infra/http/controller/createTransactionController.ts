@@ -11,8 +11,8 @@ export class CreateTransactionController {
   @Post()
   @HttpCode(201)
   async handler(@Body() data: TransactionInputDTO): Promise<void> {
-    this.createTransaction.execute({
-      dateHour: data.dataHora,
+    await this.createTransaction.execute({
+      dateHour: new Date(data.dataHora),
       value: data.valor,
     });
   }

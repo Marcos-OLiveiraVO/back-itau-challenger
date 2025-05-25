@@ -16,13 +16,18 @@ export function IsNonNegativeDecimal(validationOptions?: ValidationOptions) {
         validate(value: any, args: ValidationArguments) {
           try {
             const decimal = new Decimal(value);
-            return !decimal.isNaN() && !decimal.isNegative();
+            const isNonNegative = decimal.greaterThanOrEqualTo(0);
+            const decimalPlaces = decimal.decimalPlaces();
+
+            const isValidDecimal = isNonNegative && decimalPlaces <= 2;
+
+            return isValidDecimal;
           } catch {
             return false;
           }
         },
         defaultMessage(args: ValidationArguments) {
-          return `${args.property} must be a decimal number and greater than or equal to zero`;
+          return `${args.property} must be a decimal number and greater than or equal to zero with a maximum of 2 decimal places`;
         },
       },
     });

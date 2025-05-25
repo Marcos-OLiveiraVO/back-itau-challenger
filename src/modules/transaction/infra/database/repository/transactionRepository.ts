@@ -11,7 +11,7 @@ export class TransactionRepository implements ITransactionRepository {
 
   async create(transaction: Transaction): Promise<void> {
     const ids = [...this.transaction.keys()];
-    const id = Math.max(...ids) + 1;
+    const id = ids.length > 0 ? Math.max(...ids) + 1 : 1;
 
     this.transaction.set(id, transaction);
   }
@@ -20,7 +20,7 @@ export class TransactionRepository implements ITransactionRepository {
     const lastTime = getRecentCutoff(time);
 
     const transactions = [...this.transaction.values()].filter(
-      (transaction) => transaction.dateHour <= lastTime,
+      (transaction) => transaction.dateHour >= lastTime,
     );
 
     if (transactions.length === 0) {

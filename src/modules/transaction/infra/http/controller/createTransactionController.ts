@@ -1,5 +1,5 @@
 import { Body, Controller, HttpCode, Post } from '@nestjs/common';
-import { CreateTransactionUseCase } from 'src/transaction/application/use-cases/createTransactionUsecase';
+import { CreateTransactionUseCase } from 'src/modules/transaction/application/use-cases/createTransactionUsecase';
 import { TransactionInputDTO } from '../../adapter/dtos/transactionDTO';
 
 @Controller('/transacao')

@@ -1,5 +1,5 @@
-import { Transaction } from 'src/transaction/application/entity/transaction';
-import { ITransactionRepository } from 'src/transaction/application/interface/ITransactionRepository';
+import { Transaction } from 'src/modules/transaction/application/entity/transaction';
+import { ITransactionRepository } from 'src/modules/transaction/application/interface/ITransactionRepository';
 
 export class TransactionRepository implements ITransactionRepository {
   private transaction = new Map<number, Transaction>();

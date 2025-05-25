@@ -1,4 +1,4 @@
-import { IsISO8601, IsNotEmpty, IsString } from 'class-validator';
+import { IsInt, IsISO8601, IsNotEmpty, IsString, Min } from 'class-validator';
 import { IsNonNegativeDecimal } from 'src/shared/utils/decorators/decimal';
 
 export class TransactionInputDTO {
@@ -11,4 +11,10 @@ export class TransactionInputDTO {
     message: 'must be a decimal number and greater than or equal to zero',
   })
   valor: string;
+}
+
+export class StatisticsDto {
+  @IsInt({ message: 'Time must be a number' })
+  @Min(0, { message: 'Time must be greater than or equal to zero' })
+  time: number;
 }

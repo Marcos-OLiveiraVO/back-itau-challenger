@@ -7,7 +7,7 @@ import { getRecentCutoff } from 'src/shared/utils/functions/cutOffDatetime';
 
 @Injectable()
 export class TransactionRepository implements ITransactionRepository {
-  private transaction = new Map<number, Transaction>();
+  transaction = new Map<number, Transaction>();
 
   async create(transaction: Transaction): Promise<void> {
     const ids = [...this.transaction.keys()];

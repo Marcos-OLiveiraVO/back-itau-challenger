@@ -1,8 +1,8 @@
-import Decimal from 'decimal.js';
 import { Injectable, UnprocessableEntityException } from '@nestjs/common';
 import { TransactionInput } from '../interface/transactionRequest';
 import { Transaction } from '../entity/transaction';
 import { ITransactionRepository } from '../interface/ITransactionRepository';
+import { ValidateDecimalValue } from 'src/shared/utils/functions/validateDecimal';
 
 @Injectable()
 export class CreateTransactionUseCase {
@@ -17,9 +17,13 @@ export class CreateTransactionUseCase {
       );
     }
 
+    const value = ValidateDecimalValue(data.value);
+
     const transaction = new Transaction({
-      ...data,
-      value: new Decimal(data.value),
+      dateHour: data.dateHour,
+      value: value,
+      createdAt: dateNow,
+      updatedAt: dateNow,
     });
 
     await this.transactionRepository.create(transaction);

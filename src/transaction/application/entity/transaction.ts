@@ -1,5 +1,7 @@
+import Decimal from 'decimal.js';
+
 export interface TransactionProps {
-  value: string;
+  value: Decimal;
   dateHour: Date;
   createdAt?: Date;
   updatedAt?: Date;
@@ -14,11 +16,11 @@ export class Transaction {
     this._id = id;
   }
 
-  public get value(): string {
+  public get value(): Decimal {
     return this._props.value;
   }
 
-  public set value(value: string) {
+  public set value(value: Decimal) {
     this._props.value = value;
   }
 

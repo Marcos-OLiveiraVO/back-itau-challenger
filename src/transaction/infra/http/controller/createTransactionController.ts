@@ -9,6 +9,9 @@ export class CreateTransactionController {
   @Post()
   @HttpCode(201)
   async handler(@Body() data: TransactionInputDTO): Promise<void> {
-    this.createTransaction.execute(data);
+    this.createTransaction.execute({
+      dateHour: data.dataHora,
+      value: data.valor,
+    });
   }
 }

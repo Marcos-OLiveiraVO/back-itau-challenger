@@ -1,3 +1,4 @@
+import Decimal from 'decimal.js';
 import { Injectable, UnprocessableEntityException } from '@nestjs/common';
 import { TransactionInput } from '../interface/transactionRequest';
 import { Transaction } from '../entity/transaction';
@@ -16,7 +17,10 @@ export class CreateTransactionUseCase {
       );
     }
 
-    const transaction = new Transaction(data);
+    const transaction = new Transaction({
+      ...data,
+      value: new Decimal(data.value),
+    });
 
     await this.transactionRepository.create(transaction);
   }

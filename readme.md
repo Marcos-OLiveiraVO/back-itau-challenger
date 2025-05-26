@@ -6,6 +6,8 @@ Additionally, I created a health check endpoint that returns 'OK', indicating th
 
 All the tests was made using Jest that is already integrated with Nestjs.
 
+Since all the data is in memory, once you restart application all will be lost. The challenger repository can be found here: https://github.com/feltex/desafio-itau-backend/tree/main
+
 # 🧩 Project Setup & Usage Guide
 
 ## 🚀 Running the Application

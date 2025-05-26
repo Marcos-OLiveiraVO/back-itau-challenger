@@ -1,3 +1,11 @@
+## 📚 Project structure
+
+I applied some concepts from the inMemoryRepository pattern along with a use case to centralize the application rules. I also created DTOs to validate the input data and an entity to represent our transaction.
+
+Additionally, I created a health check endpoint that returns 'OK', indicating the application is running.
+
+All the tests was made using Jest that is already integrated with Nestjs.
+
 # 🧩 Project Setup & Usage Guide
 
 ## 🚀 Running the Application
@@ -34,11 +42,3 @@ Just open your browser and go to:
 http://localhost:3000/api
 
 That’s it — simple as that!
-
-## 📚 Project structure
-
-I applied some concepts from the inMemoryRepository pattern along with a use case to centralize the application rules. I also created DTOs to validate the input data and an entity to represent our transaction.
-
-Additionally, I created a health check endpoint that returns 'OK', indicating the application is running.
-
-All the tests was made using Jest that is already integrated with Nestjs.

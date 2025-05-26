@@ -13,4 +13,5 @@ export default {
   },
   collectCoverageFrom: ['**/*.(t|j)s'],
   coverageDirectory: '../cove',
+  testEnvironment: 'node',
 };

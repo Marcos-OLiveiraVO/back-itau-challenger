@@ -22,7 +22,7 @@ yarn stop
 You can run all the tests using the following command.
 
 ```bash
-yarn unit:test
+yarn test --verbose
 ```
 
 ## 📚 API Documentation
